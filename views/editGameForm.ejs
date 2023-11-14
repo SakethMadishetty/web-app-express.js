@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Game</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4 mb-4">Edit Game</h1>
+    <form action="/games/<%= game._id %>?_method=PUT" method="post">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" value="<%= game.name %>" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea id="description" name="description" class="form-control" required><%= game.description %></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">Type:</label>
+        <input type="text" id="type" name="type" value="<%= game.type %>" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="minimumAge" class="form-label">Minimum Age:</label>
+        <input type="number" id="minimumAge" name="minimumAge" value="<%= game.minimumAge %>" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="hourlyPrice" class="form-label">Hourly Price:</label>
+        <input type="text" id="hourlyPrice" name="hourlyPrice" value="<%= game.pricing.hourly %>" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="perGamePrice" class="form-label">Per Game Price:</label>
+        <input type="text" id="perGamePrice" name="perGamePrice" value="<%= game.pricing.perGame %>" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="imageDescription" class="form-label">Image Description:</label>
+        <input type="text" id="imageDescription" name="imageDescription" value="<%= game.image.description %>" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="imagePath" class="form-label">Image Path:</label>
+        <input type="text" id="imagePath" name="imagePath" value="<%= game.image.path %>" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Game</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= game.name %> Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    
+    .img-fluid {
+      max-height: 400px; 
+      object-fit: cover; 
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4 mb-4">Game Details</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="../<%= game.image.path %>" alt="<%= game.description %>" class="img-fluid" title="<%= game.description %>">
+      </div>
+      <div class="col-md-6">
+        <p>Name: <%= game.name %></p>
+        <p>Description: <%= game.description %></p>
+        <p>Type: <%= game.type %></p>
+        <p>Minimum Age: <%= game.minimumAge %></p>
+        <p>Hourly Price: <%= game.pricing.hourly %></p>
+        <p>Per Game Price: <%= game.pricing.perGame %></p>
+        <a href="/games/<%= game._id %>/edit" class="btn btn-warning">Edit Game</a>
+        <form action="/games/<%= game._id %>?_method=DELETE" method="post" style="display:inline;">
+          <button type="submit" class="btn btn-danger">Delete Game</button>
+        </form>
+        <a href="/games" class="btn btn-secondary">Back to List</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
